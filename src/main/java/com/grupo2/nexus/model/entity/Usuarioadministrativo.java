@@ -12,7 +12,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Usuarioadministrativo {
+public class UsuarioAdministrativo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_usuario;
@@ -21,7 +21,7 @@ public class Usuarioadministrativo {
     private String email;
 
     @Column(length = 100)
-    private String constrasena;
+    private String constraseña;
 
     private String nombre;
     private String apellido;
