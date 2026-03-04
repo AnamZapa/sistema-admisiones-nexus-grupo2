@@ -84,7 +84,7 @@ spring.jpa.show-sql=true
 
 ### 4. Ejecutar la aplicación
 **Desde linea de comandos:**
-```
+```bash
 ./mvnw spring-boot:run
 ```
 
