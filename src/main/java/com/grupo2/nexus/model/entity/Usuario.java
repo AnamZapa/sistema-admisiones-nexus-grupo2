@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder // Añadido para mantener consistencia con Curso
-@ToString(exclude = "cursos") // Evitamos que imprima la lista de cursos
+@ToString
 
 public class Usuario {
     @Id
