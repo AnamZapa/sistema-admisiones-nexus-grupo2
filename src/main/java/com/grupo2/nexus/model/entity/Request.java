@@ -76,4 +76,9 @@ public class Request {
 
     @Column(name = "segundo_programa")
     private String segundoPrograma;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id")
+    @ToString.Exclude
+    private Usuario usuario;
 }

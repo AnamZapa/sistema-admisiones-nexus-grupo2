@@ -30,4 +30,8 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Curso> cursos;
 
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ToString.Exclude // Crucial para evitar bucles infinitos con el ToString de Request
+    private List<Request> solicitudes;
+
 }
