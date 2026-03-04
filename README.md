@@ -83,8 +83,12 @@ spring.jpa.show-sql=true
 
 
 ### 4. Ejecutar la aplicación
-**Desde linea de comandos**
+**Desde linea de comandos:**
+```
 ./mvnw spring-boot:run
+```
 
 **O desde IDE:**
+```
 Localizar la clase NexusApplication.java y ejecutarla como Java Application.
+```
