@@ -1,8 +1,14 @@
 package com.grupo2.nexus.model.dto;
-import lombok.*;
 import java.math.BigDecimal;
 
-@Data
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Setter
+@Getter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

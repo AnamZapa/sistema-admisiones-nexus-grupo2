@@ -1,15 +1,16 @@
 package com.grupo2.nexus.service;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
 import com.grupo2.nexus.model.dto.UsuarioDto;
 import com.grupo2.nexus.model.embeddable.DatosPersonales;
 import com.grupo2.nexus.model.entity.Usuario;
 import com.grupo2.nexus.model.enums.RolUsuario;
 import com.grupo2.nexus.repository.UsuarioRepository;
+
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 
 @Service
@@ -96,7 +97,7 @@ public class UsuarioService {
         var datos = entity.getDatosPersonales();
 
         return UsuarioDto.builder()
-                .id(entity.getId_usuario()) // Tu ID en la entidad es id_usuario
+                .id(entity.getId()) // Tu ID en la entidad es id_usuario
 
                 .nombre(datos != null ? datos.getNombre() : "")
                 .apellido(datos != null ? datos.getApellido() : "")

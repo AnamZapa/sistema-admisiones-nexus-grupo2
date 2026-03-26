@@ -1,9 +1,13 @@
 package com.grupo2.nexus.model.dto;
 
-import lombok.*;
-import com.grupo2.nexus.model.enums.RolUsuario;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Setter
+@Getter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

@@ -4,15 +4,27 @@ import java.time.LocalDateTime;
 import java.util.List; // Importación limpia de jakarta
 
 import com.grupo2.nexus.model.embeddable.DatosPersonales;
+import com.grupo2.nexus.model.enums.Activo;
 import com.grupo2.nexus.model.enums.RolUsuario;
-import jakarta.persistence.*;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import com.grupo2.nexus.model.enums.Activo;
 
 @Entity
 @Table(name = "usuarios")
@@ -23,7 +35,7 @@ import com.grupo2.nexus.model.enums.Activo;
 @Builder
 @ToString
 
-public class Usuario {
+public class Usuario{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
