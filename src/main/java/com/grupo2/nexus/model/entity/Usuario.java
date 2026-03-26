@@ -1,26 +1,30 @@
 package com.grupo2.nexus.model.entity;
 
+import java.time.LocalDateTime;
 import java.util.List; // Importación limpia de jakarta
 
 import com.grupo2.nexus.model.embeddable.DatosPersonales;
+import com.grupo2.nexus.model.enums.Activo;
+import com.grupo2.nexus.model.enums.RolUsuario;
+
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.EnumType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import com.grupo2.nexus.model.enums.Activo;
 
 @Entity
 @Table(name = "usuarios")
@@ -31,10 +35,11 @@ import com.grupo2.nexus.model.enums.Activo;
 @Builder
 @ToString
 
-public class Usuario {
+public class Usuario{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_usuario;
+    @Column(name = "id_usuario")
+    private Long id;
 
     @Embedded
     private DatosPersonales datosPersonales;
@@ -42,11 +47,17 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private Activo activo;
 
+    @Enumerated(EnumType.STRING)
+    private RolUsuario rolUsuario;
+
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Curso> cursos;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @ToString.Exclude // Crucial para evitar bucles infinitos con el ToString de Request
     private List<Request> solicitudes;
+
+    @Column(name = "fecha_creacion", updatable = false)
+    private LocalDateTime fechaCreacion;
 
 }
