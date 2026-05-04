@@ -38,7 +38,7 @@ public class RequestService {
 
        curso.setCuposDisponibles(curso.getCuposDisponibles() - 1);
 
-       cursoService.update(curso);
+       cursoService.update(curso.getId(), curso);
 
         entity.setFechaCreacion(LocalDateTime.now());
         Request saved = requestRepository.save(entity);
