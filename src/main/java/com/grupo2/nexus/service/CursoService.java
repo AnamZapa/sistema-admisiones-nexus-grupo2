@@ -1,9 +1,7 @@
 package com.grupo2.nexus.service;
 import com.grupo2.nexus.model.dto.CursoDto;
 import com.grupo2.nexus.model.entity.Curso;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-
+import java.util.List;
 import java.time.LocalDateTime;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
@@ -16,9 +14,10 @@ public class CursoService {
 
     private final CursoRepository cursoRepository;
 
-    public Page<CursoDto> findAll(Pageable pageable) {
-        return cursoRepository.findAll(pageable)
-                .map(this::toResponse);
+    public List<CursoDto> findAll() {
+        return cursoRepository.findAll().stream()
+                .map(this::toResponse)
+                .toList();
     }
 
     public CursoDto findById(Long id) {
